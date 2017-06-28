@@ -1,5 +1,3 @@
-from enum import Enum
-
 from django.db import models
 
 
@@ -20,7 +18,7 @@ class User(models.Model):
     phone = models.CharField(max_length=15)
     mobile_phone = models.CharField(max_length=15)
     courses = models.ManyToManyField(Course)
-    status = models.BooleanField
+    status = models.BooleanField(default=True)
 
     def __str__(self):
         return self.email
