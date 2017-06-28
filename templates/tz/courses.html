@@ -6,5 +6,14 @@
 </head>
 <body>
 <h1>Courses</h1>
+{% if course_model_list %}
+    <ul>
+        {% for course in course_model_list %}
+            <li>{{ course.name }}, {{ course.code }}        <a href="{% url 'update_course' course.id %}">Edit</a>          <a href="{% url 'delete_course' course.id %}">Delete</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    No users
+{% endif %}
 </body>
 </html>
