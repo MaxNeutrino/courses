@@ -31,6 +31,5 @@ class RegistrationForm(forms.Form):
     name = forms.CharField(label='Name', max_length=32)
     email = forms.EmailField(label='Email', max_length=50)
     password = forms.CharField(label='Password', max_length=32)
-    phone = forms.IntegerField(label='Phone')
-    mobile_phone = forms.IntegerField(label='Mobile-Phone')
-    status = forms.BooleanField(label='Status')
+    phone = forms.CharField(label='Phone')
+    mobile_phone = forms.CharField(label='Mobile-Phone')

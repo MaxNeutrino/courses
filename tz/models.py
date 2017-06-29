@@ -13,15 +13,22 @@ class Course(models.Model):
         ordering = ('name',)
 
 
-class UserAdditional(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=15)
-    mobile_phone = models.CharField(max_length=15)
-    courses = models.ManyToManyField(Course)
-    status = models.BooleanField(default=True)
+class User:
+    id = None
+    name = None
+    email = None
+    phone = None
+    mobile_phone = None
+    status = None
+    courses = None
+
+    def __init__(self, name, email, status):
+        self.name = name
+        self.email = email
+        self.status = status
 
     def __str__(self):
-        return self.user_id
+        return id
 
     class Meta:
         ordering = ('user_id',)

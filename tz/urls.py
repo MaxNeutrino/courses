@@ -29,5 +29,6 @@ urlpatterns = [
     url(r'^users/delete/(?P<user_id>[0-9]+)/$', views.delete_a_user, name='delete_user'),
     url(r'^$', views.auth, name='auth'),
     url(r'^registration/$', views.registration, name='registration'),
+    url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^admin/', admin.site.urls),
 ]
