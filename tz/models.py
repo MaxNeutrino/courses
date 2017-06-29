@@ -1,16 +1,12 @@
-from django.contrib.auth.models import User
-from django.db import models
-
-
-class Course(models.Model):
-    name = models.CharField(max_length=200)
-    code = models.CharField(max_length=200)
+class Course:
+    id = None
+    name = None
+    code = None
 
     def __str__(self):
-        return self.name
-
-    class Meta:
-        ordering = ('name',)
+        return "id = {}, name = {}, code = {}".format(
+            self.id, self.name, self.code
+        )
 
 
 class User:
@@ -22,16 +18,10 @@ class User:
     status = None
     courses = None
 
-    def __init__(self, name, email, status):
-        self.name = name
-        self.email = email
-        self.status = status
-
     def __str__(self):
-        return id
-
-    class Meta:
-        ordering = ('user_id',)
+        return "id = {}, name = {}, email = {}, phone = {}, mobile_phone = {}, status = {}".format(
+            self.id, self.name, self.email, self.phone, self.mobile_phone, self.status
+        )
 
 
 class PassObject:

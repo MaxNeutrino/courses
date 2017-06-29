@@ -19,16 +19,16 @@ from django.contrib import admin
 from tz import views
 
 urlpatterns = [
-    url(r'^users/$', views.UserView.as_view(), name='users'),
-    url(r'^courses/$', views.CourseView.as_view(), name='courses'),
-    url(r'^courses/create/$', views.create_a_course, name='create_course'),
-    url(r'^courses/update/(?P<course_id>[0-9]+)/$', views.update_a_course, name='update_course'),
-    url(r'^courses/delete/(?P<course_id>[0-9]+)/$', views.delete_a_course, name='delete_course'),
-    url(r'^users/create/$', views.create_a_user, name='create_user'),
-    url(r'^users/update/(?P<user_id>[0-9]+)/$', views.update_a_user, name='update_user'),
-    url(r'^users/delete/(?P<user_id>[0-9]+)/$', views.delete_a_user, name='delete_user'),
+    # url(r'^users/$', views.UserView.as_view(), name='users'),
+    # url(r'^courses/$', views.CourseView.as_view(), name='courses'),
+    # url(r'^courses/create/$', views.create_a_course, name='create_course'),
+    # url(r'^courses/update/(?P<course_id>[0-9]+)/$', views.update_a_course, name='update_course'),
+    # url(r'^courses/delete/(?P<course_id>[0-9]+)/$', views.delete_a_course, name='delete_course'),
+    # url(r'^users/create/$', views.create_a_user, name='create_user'),
+    # url(r'^users/update/(?P<user_id>[0-9]+)/$', views.update_a_user, name='update_user'),
+    # url(r'^users/delete/(?P<user_id>[0-9]+)/$', views.delete_a_user, name='delete_user'),
     url(r'^$', views.auth, name='auth'),
-    url(r'^registration/$', views.registration, name='registration'),
-    url(r'^logout/$', views.user_logout, name='logout'),
+    # url(r'^registration/$', views.registration, name='registration'),
+    # url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^admin/', admin.site.urls),
 ]

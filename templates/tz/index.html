@@ -5,10 +5,45 @@
     <title>Title</title>
 </head>
 <body>
-<form action="" method="post">
+{% comment %}<form action="" method="post">
     {% csrf_token %}
-    {{ form }}
+        {{ form }}
+    <input type="submit" value="Submit"/>
+</form>{% endcomment %}
+
+<form action="" method="post" id="auth-form">
+    {% csrf_token %}
+    <input type="text" id="name" name="name" value="">
+    <input type="text" id="password" name="password" value="">
     <input type="submit" value="Submit"/>
 </form>
+
+<script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        var form = $('#auth-form');
+        form.submit(function (e) {
+            $.ajax({
+                type: form.attr('method'),
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function () {
+                    console.log("SUCCES");
+                    window.location.href = "/users"
+                },
+                error: function (e) {
+                    console.log("ERROR: ", e);
+                },
+                done: function (e) {
+                    console.log("DONE");
+                }
+            });
+            e.preventDefault();
+        })
+    })
+</script>
 </body>
 </html>

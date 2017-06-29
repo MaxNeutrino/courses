@@ -1,0 +1,35 @@
+DROP TABLE IF EXISTS user_courses CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS courses CASCADE;
+
+CREATE TABLE users
+(
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  phone VARCHAR(15),
+  mobile_phone VARCHAR(15),
+  status BOOLEAN DEFAULT FALSE
+);
+
+CREATE UNIQUE INDEX email_index ON users (email);
+
+CREATE TABLE courses
+(
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100),
+  code VARCHAR(255)
+);
+
+ALTER TABLE users AUTO_INCREMENT = 1000;
+ALTER TABLE courses AUTO_INCREMENT = 1000;
+
+CREATE TABLE user_courses
+(
+  user_id INT NOT NULL,
+  course_id INT NOT NULL,
+  PRIMARY KEY(user_id, course_id),
+
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (course_id) REFERENCES courses(id)
+)
